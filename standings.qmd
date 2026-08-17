@@ -1,0 +1,16 @@
+---
+title: "Standings"
+format: html
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+source("_data.R")
+library(knitr)
+
+standings %>%
+  rename(User = user, `Correct Picks` = correct, `Total Picks` = total, `Win %` = pct) %>%
+  kable()
+```

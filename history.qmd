@@ -1,0 +1,10 @@
+---
+title: "League History"
+---
+
+<!-- Update this table by hand each year once a champion is decided. -->
+
+| Season | Champion | Record |
+|--------|----------|--------|
+| 2023   | Sawyer   | 91-45  |
+| 2024   | Bryan    | 88-48  |

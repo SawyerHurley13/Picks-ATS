@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Hip to Be Square: Lititz vs. the World"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: results.qmd
+        text: Results
+      - href: standings.qmd
+        text: Standings
+      - href: history.qmd
+        text: History
+      - href: rules.qmd
+        text: Rules
+      - href: chat.qmd
+        text: Chat
+ 
+format:
+  html:
+    theme: cosmo
+    toc: false
+ 

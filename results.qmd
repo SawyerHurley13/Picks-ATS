@@ -1,0 +1,21 @@
+---
+title: "Week Results"
+---
+```{r}
+#| echo: false
+#| message: false
+source("_data.R")
+library(knitr)
+
+for (w in sort(unique(weekly_summary$week))) {
+  cat(paste0("\n### Week ", w, "\n\n"))
+  
+  week_detail <- results %>%
+    filter(week == w, !is.na(correct_pick)) %>%
+    select(User = user, Game = game_id, Pick = pick, `Correct Pick` = correct_pick, Correct = correct) %>%
+    mutate(Correct = ifelse(Correct, "✅", "❌"))
+  
+  print(kable(week_detail))
+  cat("\n")
+}
+```

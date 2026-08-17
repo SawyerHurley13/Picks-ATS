@@ -1,0 +1,19 @@
+---
+title: "Rules"
+---
+
+<!-- Replace this placeholder text with your actual league rules. -->
+
+## How It Works
+
+- Each week, pick every game against the spread.
+- Picks lock at kickoff of the first game each week.
+- One point for every correct pick; pushes count as a win for everyone.
+
+## Scoring
+
+<!-- Describe tiebreakers, weekly winners, season prizes, etc. here. -->
+
+## Deadlines
+
+<!-- Describe your weekly lock time (e.g. "Picks lock Thursday at 8:15pm ET"). -->

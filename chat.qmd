@@ -1,0 +1,9 @@
+---
+title: "Chat"
+---
+
+Trash talk here. No account needed — just pick a nickname and go.
+
+```{=html}
+<iframe src="https://tlk.io/https://tlk.io/lititz-vs-the-world" width="100%" height="600" frameborder="0"></iframe>
+```

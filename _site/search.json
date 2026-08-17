@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lititz Amish Against the Spread",
+    "section": "",
+    "text": "Have a home page that displays the current standings (essentially what would be the first page of the google sheet) and links to the app. Have a second page that lists the rules. Have a third page that lists the league history (standings). Message board? (Giscus).\nWelcome! Make your picks for the week using the link below.\nMake Your Picks"
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Lititz Amish Against the Spread",
+    "section": "",
+    "text": "Have a home page that displays the current standings (essentially what would be the first page of the google sheet) and links to the app. Have a second page that lists the rules. Have a third page that lists the league history (standings). Message board? (Giscus).\nWelcome! Make your picks for the week using the link below.\nMake Your Picks"
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Week Results",
+    "section": "",
+    "text": "Warning in left_join(., games %&gt;% select(game_id, team_home, team_away, : Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 1 of `x` matches multiple rows in `y`.\nℹ Row 1 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\n\n### Week 1\n\n\n\n|User   |Game |Pick    |Correct Pick |Correct |\n|:------|:----|:-------|:------------|:-------|\n|Alice  |1    |Tampa   |LV           |❌      |\n|Alice  |2    |Houston |PUSH         |✅      |\n|Bob    |1    |LV      |LV           |✅      |\n|Bob    |2    |Houston |PUSH         |✅      |\n|Chris  |1    |LV      |LV           |✅      |\n|Chris  |2    |SF      |PUSH         |✅      |\n|Sawyer |1    |Tampa   |LV           |❌      |\n|Sawyer |2    |SF      |PUSH         |✅      |\n|Bryan  |1    |LV      |LV           |✅      |\n|Bryan  |2    |Houston |PUSH         |✅      |\n\n\n### Week 3\n\n\n\n|User  |Game |Pick     |Correct Pick |Correct |\n|:-----|:----|:--------|:------------|:-------|\n|Alice |1    |Carolina |LV           |❌      |"
+  },
+  {
+    "objectID": "standings.html",
+    "href": "standings.html",
+    "title": "Standings",
+    "section": "",
+    "text": "Warning in left_join(., games %&gt;% select(game_id, team_home, team_away, : Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 1 of `x` matches multiple rows in `y`.\nℹ Row 1 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\n\n\n\nUser\nCorrect Picks\nTotal Picks\nWin %\n\n\n\n\nBob\n2\n2\n100.0\n\n\nBryan\n2\n2\n100.0\n\n\nChris\n2\n2\n100.0\n\n\nAlice\n1\n3\n33.3\n\n\nSawyer\n1\n2\n50.0"
+  }
+]
