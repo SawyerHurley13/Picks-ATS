@@ -1,36 +1,25 @@
 ---
-title: "Hip to Be Square: Lititz vs. the World"
+title: "Hip to Be Square: Lititz (and Beyond) vs. the World"
 format: html
 editor: visual
 ---
 
 Welcome! Make your picks for the week using the link below.
 
-[Make Your Picks](your_shinyapps_url_here){.btn .btn-primary}
+[Make Your Picks](https://shurley13.shinyapps.io/picks_ats/){.btn .btn-primary}
 
 ## Current Standings
 
 ```{r}
 #| echo: false
 #| message: false
+#| warning: false
 source("_data.R")
 library(knitr)
 
 standings %>%
-  rename(User = user, `Correct Picks` = correct, `Total Picks` = total, `Win %` = pct) %>%
+  select(Participant = user, Correct = correct, Total = total, `Win %` = pct, `Total $` = total_dollars) %>%
   kable()
 ```
 
 See the [full weekly results](results.qmd) or [all-time standings](standings.qmd) for more detail.
-
-Quarto
-
-Have a home page that displays the current standings (essentially what would be the first page of the google sheet) and links to the app. Have a second page that lists the rules. Have a third page that lists the league history (standings). Message board? (Giscus).
-
-add a passcode instead of user dropdown. they have to enter their name "sawyer" to get access to their picks
-
-Welcome! Make your picks for the week using the link below.
-
-Make Your Picks
-
-add something like a `stats.qmd` with `format: dashboard`

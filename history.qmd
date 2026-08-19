@@ -2,9 +2,17 @@
 title: "League History"
 ---
 
-<!-- Update this table by hand each year once a champion is decided. -->
 
-| Season | Champion | Record |
+| Season | Champion | Money  |
 |--------|----------|--------|
-| 2023   | Sawyer   | 91-45  |
-| 2024   | Bryan    | 88-48  |
+| 2025   | Sawyer   | $2,300 |
+| 2024   | Bryan    | $5,650 |
+| 2023   | Bryan    | $3,700 |
+| 2022   | Bryan    | $900   |
+| 2021   | Suhaib   | $4,500 |
+| 2020   | Bryan    | $1,900 |
+| 2019   | Sawyer   |        |
+| 2018   | Unknown  |        |
+
+
+I will add everyone's seasonal standings at a later date.

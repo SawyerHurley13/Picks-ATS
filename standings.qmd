@@ -7,10 +7,20 @@ editor: visual
 ```{r}
 #| echo: false
 #| message: false
+#| warning: false
 source("_data.R")
 library(knitr)
 
 standings %>%
-  rename(User = user, `Correct Picks` = correct, `Total Picks` = total, `Win %` = pct) %>%
+  select(
+    Participant        = user,
+    Correct     = correct,
+    Total       = total,
+    `Win %`     = pct,
+    `Base $`    = base_dollars,
+    `Bonus $`   = bonus_dollars,
+    `Missed $`  = missed_dollars,
+    `Total $`   = total_dollars
+  ) %>%
   kable()
 ```

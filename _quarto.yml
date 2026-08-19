@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Hip to Be Square: Lititz vs. the World"
+  title: "Hip to Be Square: Lititz (and Beyond) vs. the World"
   navbar:
     left:
       - href: index.qmd

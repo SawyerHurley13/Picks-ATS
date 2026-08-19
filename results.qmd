@@ -6,15 +6,42 @@ title: "Week Results"
 #| message: false
 source("_data.R")
 library(knitr)
+library(dplyr)
 
 for (w in sort(unique(weekly_summary$week))) {
-  cat(paste0("\n### Week ", w, "\n\n"))
-  
+  cat(paste0("\n## Week ", w, "\n\n"))
+
+  week_totals <- weekly_summary %>%
+    filter(week == w) %>%
+    arrange(desc(week_dollars)) %>%
+    select(
+      Participant        = user,
+      Correct     = correct,
+      Total       = total,
+      `Base $`    = base_dollars,
+      `Bonus $`   = bonus_dollars,
+      `Missed $`  = missed_dollars,
+      `Week Total`= week_dollars
+    )
+
+  print(kable(week_totals))
+  cat("\n")
+
   week_detail <- results %>%
     filter(week == w, !is.na(correct_pick)) %>%
-    select(User = user, Game = game_id, Pick = pick, `Correct Pick` = correct_pick, Correct = correct) %>%
-    mutate(Correct = ifelse(Correct, "✅", "❌"))
-  
+    select(
+      Participant          = user,
+      Game          = game_id,
+      Pick          = pick,
+      `Correct Pick`= correct_pick,
+      Bonus         = bonus,
+      Correct       = correct
+    ) %>%
+    mutate(
+      Correct = ifelse(Correct, "✅", "❌"),
+      Bonus   = ifelse(Bonus, "✅", "")
+    )
+
   print(kable(week_detail))
   cat("\n")
 }

@@ -6,14 +6,12 @@ title: "Rules"
 
 ## How It Works
 
-- Each week, pick every game against the spread.
-- Picks lock at kickoff of the first game each week.
-- One point for every correct pick; pushes count as a win for everyone.
 
-## Scoring
+You must bet every game every week. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone. 
 
-<!-- Describe tiebreakers, weekly winners, season prizes, etc. here. -->
+The objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.
 
-## Deadlines
+We will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game. I am able to see the time stamp of your picks, so don't try and abuse this.
 
-<!-- Describe your weekly lock time (e.g. "Picks lock Thursday at 8:15pm ET"). -->
+Each week's slate and spreads will be available sometime on Wednesday of that week (or a day before that week's first game)
+
