@@ -31,20 +31,24 @@ for (w in sort(unique(weekly_summary$week))) {
 
   week_detail <- results %>%
     filter(week == w, !is.na(correct_pick)) %>%
-    select(
-      Participant          = user,
-      Game          = game_id,
-      Pick          = pick,
-      `Correct Pick`= correct_pick,
-      Bonus         = bonus,
-      Correct       = correct
-    ) %>%
-    mutate(
-      Correct = ifelse(Correct, "✅", "❌"),
-      Bonus   = ifelse(Bonus, "✅", "")
+    mutate(pick_display = paste0(pick, ifelse(bonus, " (B)", ""))) %>%
+    select(game_id, team_away, team_home, spread, correct_pick, user, pick_display) %>%
+    tidyr::pivot_wider(
+      id_cols     = c(game_id, team_away, team_home, spread, correct_pick),
+      names_from  = user,
+      values_from = pick_display
     )
 
-  print(kable(week_detail))
+  # Ensure every participant has a column, even if they made no picks this week
+  for (u in setdiff(all_users, names(week_detail))) {
+    week_detail[[u]] <- NA_character_
+  }
+
+  week_detail <- week_detail %>%
+    mutate(Game = paste(team_away, "at", team_home)) %>%
+    select(Game, `Home Spread` = spread, `Correct Pick` = correct_pick, all_of(all_users))
+
+  print(kable(week_detail, na = ""))
   cat("\n")
 }
 ```

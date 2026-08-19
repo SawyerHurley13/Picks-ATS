@@ -8,18 +8,7 @@ Welcome! Make your picks for the week using the link below.
 
 [Make Your Picks](https://shurley13.shinyapps.io/picks_ats/){.btn .btn-primary}
 
-## Current Standings
+<!-- Current Standings add here? Or something else. -->
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-source("_data.R")
-library(knitr)
 
-standings %>%
-  select(Participant = user, Correct = correct, Total = total, `Win %` = pct, `Total $` = total_dollars) %>%
-  kable()
-```
-
-See the [full weekly results](results.qmd) or [all-time standings](standings.qmd) for more detail.
+<!-- See the [full weekly results](results.qmd) or [all-time standings](standings.qmd) for more detail. -->

@@ -69,7 +69,7 @@ results <- picks %>%
 missed_by_week <- games %>%
   filter(!is.na(correct_pick)) %>%
   select(week, game_id) %>%
-  crossing(user = all_users) %>%
+  tidyr::crossing(user = all_users) %>%
   anti_join(picks %>% select(user, week, game_id), by = c("user", "week", "game_id")) %>%
   group_by(user, week) %>%
   summarise(missed_dollars = -MISSED_DOCK * n(), .groups = "drop")
@@ -112,4 +112,3 @@ standings <- weekly_summary %>%
     .groups = "drop"
   ) %>%
   arrange(desc(total_dollars))
-

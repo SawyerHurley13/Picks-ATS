@@ -13,7 +13,9 @@ website:
       - href: standings.qmd
         text: Standings
       - href: history.qmd
-        text: History
+        text: League History
+      - href: graphs.qmd
+        text: Fun Stuff
       - href: rules.qmd
         text: Rules
       - href: chat.qmd
