@@ -1,5 +1,5 @@
 ---
-title: "Hip to Be Square: Lititz (and Beyond) vs. the World"
+title: "Home"
 format: html
 editor: visual
 ---

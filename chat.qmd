@@ -4,6 +4,11 @@ title: "Chat"
 
 Civilized smack talk is both permitted and encouraged. No account needed, just enter a nickname. 
 
+#```{=html}
+#<iframe src="https://tlk.io/lititz-vs-the-world" width="100%" height="600" #frameborder="0"></iframe>
+#```
+
 ```{=html}
-<iframe src="https://tlk.io/lititz-vs-the-world" width="100%" height="600" frameborder="0"></iframe>
+<div id="chatwee-widget-container"></div>
+<script src="https://chatwee-api.com/v2/script/6a8b85475287846e7319e0f2.js"></script>
 ```
