@@ -183,16 +183,6 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Bryan</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">200</td>
-<td style="text-align: right;">200</td>
-<td style="text-align: right;">-50</td>
-<td style="text-align: right;">350</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Sawyer</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
@@ -202,8 +192,18 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Herm</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">NaN</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-100</td>
+<td style="text-align: right;">-100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jesse</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">NaN</td>
@@ -271,6 +271,16 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">-100</td>
 <td style="text-align: right;">-100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bryan</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-200</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-50</td>
+<td style="text-align: right;">-250</td>
 </tr>
 </tbody>
 </table>
@@ -353,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/SawyerHurley13\.github\.io\/Picks-ATS\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
