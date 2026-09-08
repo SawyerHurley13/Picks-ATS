@@ -12,7 +12,7 @@ title: "League History"
 | 2021   | Suhaib   | $4,500 |
 | 2020   | Bryan    | $1,900 |
 | 2019   | Sawyer   |        |
-| 2018   | Unknown  |        |
+| 2018   | Bryan    |        |
 
 
 I will add everyone's seasonal standings at a later date.
