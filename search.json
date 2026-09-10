@@ -18,7 +18,7 @@
     "href": "standings.html",
     "title": "Standings",
     "section": "",
-    "text": "Participant\nCorrect\nTotal\nWin %\nBase $\nBonus $\nMissed $\nTotal $"
+    "text": "Participant\nCorrect\nTotal\nWin %\nBase $\nBonus $\nMissed $\nTotal $\n\n\n\n\nOscar\n1\n1\n100\n100\n200\n0\n300\n\n\nBryan\n1\n1\n100\n100\n0\n0\n100\n\n\nJon\n1\n1\n100\n100\n0\n0\n100\n\n\nVince\n1\n1\n100\n100\n0\n0\n100\n\n\nHerm\n0\n1\n0\n-100\n0\n0\n-100\n\n\nJosh\n0\n1\n0\n-100\n0\n0\n-100\n\n\nSarah\n0\n1\n0\n-100\n0\n0\n-100\n\n\nSawyer\n0\n1\n0\n-100\n0\n0\n-100\n\n\nSuhaib\n0\n1\n0\n-100\n0\n0\n-100\n\n\nJesse\n0\n1\n0\n-100\n-200\n0\n-300\n\n\nSimpson\n0\n1\n0\n-100\n-200\n0\n-300"
   },
   {
     "objectID": "rules.html",
@@ -33,6 +33,20 @@
     "title": "Rules",
     "section": "",
     "text": "You must bet every game every week. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone.\nThe objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.\nWe will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game. I am able to see the time stamp of your picks, so don’t try and abuse this.\nEach week’s slate and spreads will be available sometime on Wednesday of that week (or the day before that week’s first game)"
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Week Results",
+    "section": "",
+    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nOscar\n1\n1\n100\n200\n0\n300\n\n\nBryan\n1\n1\n100\n0\n0\n100\n\n\nJon\n1\n1\n100\n0\n0\n100\n\n\nVince\n1\n1\n100\n0\n0\n100\n\n\nHerm\n0\n1\n-100\n0\n0\n-100\n\n\nJosh\n0\n1\n-100\n0\n0\n-100\n\n\nSarah\n0\n1\n-100\n0\n0\n-100\n\n\nSawyer\n0\n1\n-100\n0\n0\n-100\n\n\nSuhaib\n0\n1\n-100\n0\n0\n-100\n\n\nJesse\n0\n1\n-100\n-200\n0\n-300\n\n\nSimpson\n0\n1\n-100\n-200\n0\n-300\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE"
+  },
+  {
+    "objectID": "results.html#week-1",
+    "href": "results.html#week-1",
+    "title": "Week Results",
+    "section": "",
+    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nOscar\n1\n1\n100\n200\n0\n300\n\n\nBryan\n1\n1\n100\n0\n0\n100\n\n\nJon\n1\n1\n100\n0\n0\n100\n\n\nVince\n1\n1\n100\n0\n0\n100\n\n\nHerm\n0\n1\n-100\n0\n0\n-100\n\n\nJosh\n0\n1\n-100\n0\n0\n-100\n\n\nSarah\n0\n1\n-100\n0\n0\n-100\n\n\nSawyer\n0\n1\n-100\n0\n0\n-100\n\n\nSuhaib\n0\n1\n-100\n0\n0\n-100\n\n\nJesse\n0\n1\n-100\n-200\n0\n-300\n\n\nSimpson\n0\n1\n-100\n-200\n0\n-300\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE"
   },
   {
     "objectID": "index.html",
