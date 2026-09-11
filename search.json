@@ -18,7 +18,7 @@
     "href": "standings.html",
     "title": "Standings",
     "section": "",
-    "text": "Participant\nCorrect\nTotal\nWin %\nBase $\nBonus $\nMissed $\nTotal $\n\n\n\n\nOscar\n2\n2\n100\n200\n200\n0\n400\n\n\nVince\n2\n2\n100\n200\n200\n0\n400\n\n\nJosh\n1\n2\n50\n0\n200\n0\n200\n\n\nBryan\n1\n2\n50\n0\n0\n0\n0\n\n\nHerm\n1\n2\n50\n0\n0\n0\n0\n\n\nJesse\n1\n2\n50\n0\n0\n0\n0\n\n\nJon\n1\n2\n50\n0\n0\n0\n0\n\n\nSarah\n1\n2\n50\n0\n0\n0\n0\n\n\nSawyer\n1\n2\n50\n0\n0\n0\n0\n\n\nSuhaib\n0\n2\n0\n-200\n0\n0\n-200\n\n\nSimpson\n0\n1\n0\n-100\n-200\n-25\n-325"
+    "text": "Participant\nCorrect\nTotal\nWin %\nBase $\nBonus $\nMissed $\nTotal $\n\n\n\n\nBryan\n2\n2\n100\n200\n0\n0\n200\n\n\nJon\n2\n2\n100\n200\n0\n0\n200\n\n\nOscar\n1\n2\n50\n0\n200\n0\n200\n\n\nSuhaib\n1\n2\n50\n0\n0\n0\n0\n\n\nHerm\n0\n2\n0\n-200\n0\n0\n-200\n\n\nSarah\n0\n2\n0\n-200\n0\n0\n-200\n\n\nSawyer\n0\n2\n0\n-200\n0\n0\n-200\n\n\nVince\n1\n2\n50\n0\n-200\n0\n-200\n\n\nSimpson\n0\n1\n0\n-100\n-200\n-25\n-325\n\n\nJosh\n0\n2\n0\n-200\n-200\n0\n-400\n\n\nJesse\n0\n2\n0\n-200\n-400\n0\n-600"
   },
   {
     "objectID": "rules.html",
@@ -39,14 +39,14 @@
     "href": "results.html",
     "title": "Week Results",
     "section": "",
-    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nOscar\n2\n2\n200\n200\n0\n400\n\n\nVince\n2\n2\n200\n200\n0\n400\n\n\nJosh\n1\n2\n0\n200\n0\n200\n\n\nBryan\n1\n2\n0\n0\n0\n0\n\n\nHerm\n1\n2\n0\n0\n0\n0\n\n\nJesse\n1\n2\n0\n0\n0\n0\n\n\nJon\n1\n2\n0\n0\n0\n0\n\n\nSarah\n1\n2\n0\n0\n0\n0\n\n\nSawyer\n1\n2\n0\n0\n0\n0\n\n\nSuhaib\n0\n2\n-200\n0\n0\n-200\n\n\nSimpson\n0\n1\n-100\n-200\n-25\n-325\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE\n\n\nSF at LAR\n-3.5\nLAR\nLAR\nSF\nLAR (B)\nSF\nLAR\nNA\nLAR\nLAR (B)\nLAR\nLAR (B)\nSF"
+    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nBryan\n2\n2\n200\n0\n0\n200\n\n\nJon\n2\n2\n200\n0\n0\n200\n\n\nOscar\n1\n2\n0\n200\n0\n200\n\n\nSuhaib\n1\n2\n0\n0\n0\n0\n\n\nHerm\n0\n2\n-200\n0\n0\n-200\n\n\nSarah\n0\n2\n-200\n0\n0\n-200\n\n\nSawyer\n0\n2\n-200\n0\n0\n-200\n\n\nVince\n1\n2\n0\n-200\n0\n-200\n\n\nSimpson\n0\n1\n-100\n-200\n-25\n-325\n\n\nJosh\n0\n2\n-200\n-200\n0\n-400\n\n\nJesse\n0\n2\n-200\n-400\n0\n-600\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE\n\n\nSF at LAR\n-3.5\nSF\nLAR\nSF\nLAR (B)\nSF\nLAR\nNA\nLAR\nLAR (B)\nLAR\nLAR (B)\nSF"
   },
   {
     "objectID": "results.html#week-1",
     "href": "results.html#week-1",
     "title": "Week Results",
     "section": "",
-    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nOscar\n2\n2\n200\n200\n0\n400\n\n\nVince\n2\n2\n200\n200\n0\n400\n\n\nJosh\n1\n2\n0\n200\n0\n200\n\n\nBryan\n1\n2\n0\n0\n0\n0\n\n\nHerm\n1\n2\n0\n0\n0\n0\n\n\nJesse\n1\n2\n0\n0\n0\n0\n\n\nJon\n1\n2\n0\n0\n0\n0\n\n\nSarah\n1\n2\n0\n0\n0\n0\n\n\nSawyer\n1\n2\n0\n0\n0\n0\n\n\nSuhaib\n0\n2\n-200\n0\n0\n-200\n\n\nSimpson\n0\n1\n-100\n-200\n-25\n-325\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE\n\n\nSF at LAR\n-3.5\nLAR\nLAR\nSF\nLAR (B)\nSF\nLAR\nNA\nLAR\nLAR (B)\nLAR\nLAR (B)\nSF"
+    "text": "Participant\nCorrect\nTotal\nBase $\nBonus $\nMissed $\nWeek Total\n\n\n\n\nBryan\n2\n2\n200\n0\n0\n200\n\n\nJon\n2\n2\n200\n0\n0\n200\n\n\nOscar\n1\n2\n0\n200\n0\n200\n\n\nSuhaib\n1\n2\n0\n0\n0\n0\n\n\nHerm\n0\n2\n-200\n0\n0\n-200\n\n\nSarah\n0\n2\n-200\n0\n0\n-200\n\n\nSawyer\n0\n2\n-200\n0\n0\n-200\n\n\nVince\n1\n2\n0\n-200\n0\n-200\n\n\nSimpson\n0\n1\n-100\n-200\n-25\n-325\n\n\nJosh\n0\n2\n-200\n-200\n0\n-400\n\n\nJesse\n0\n2\n-200\n-400\n0\n-600\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame\nHome Spread\nCorrect Pick\nSawyer\nBryan\nJosh\nSuhaib\nHerm\nSimpson\nSarah\nVince\nOscar\nJesse\nJon\n\n\n\n\nNE at SEA\n-3.5\nNE\nSEA\nNE\nSEA\nSEA\nSEA\nSEA (B)\nSEA\nNE\nNE (B)\nSEA (B)\nNE\n\n\nSF at LAR\n-3.5\nSF\nLAR\nSF\nLAR (B)\nSF\nLAR\nNA\nLAR\nLAR (B)\nLAR\nLAR (B)\nSF"
   },
   {
     "objectID": "index.html",
