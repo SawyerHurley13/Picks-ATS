@@ -7,7 +7,7 @@ title: "Rules"
 ## How It Works
 
 
-You must bet every game every week. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone. 
+You must bet every game every week, with the games being bet against the spread. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone. 
 
 The objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.
 
