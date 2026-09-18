@@ -10,28 +10,64 @@ source("_data.R")
 library(knitr)
 library(dplyr)
 
-for (w in sort(unique(weekly_summary$week))) {
-  cat(paste0("\n## Week ", w, "\n\n"))
+options(knitr.kable.NA = "")
+
+# Chronological week order: regular season 1-18, then playoffs
+week_levels <- c(as.character(1:18), "WC", "Div", "Conf", "SB")
+
+# Show every week that has at least one submitted pick, not just decided ones
+weeks <- unique(picks$week)
+weeks <- weeks[order(match(weeks, week_levels))]
+
+# --- Week picker dropdown ---
+cat('<div style="margin-bottom: 20px;">\n')
+cat('<label for="week-select"><strong>Select Week: </strong></label>\n')
+cat('<select id="week-select" onchange="showWeek(this.value)">\n')
+for (w in weeks) {
+  cat(paste0('<option value="week-', w, '">Week ', w, '</option>\n'))
+}
+cat('</select>\n</div>\n')
+
+cat('<script>
+function showWeek(id) {
+  document.querySelectorAll(".week-block").forEach(function(el) { el.style.display = "none"; });
+  document.getElementById(id).style.display = "block";
+}
+</script>\n')
+
+# --- One hidden/shown block per week ---
+for (w in weeks) {
+
+  display_style <- if (w == weeks[1]) "block" else "none"
+  cat(paste0('<div id="week-', w, '" class="week-block" style="display:', display_style, ';">\n'))
+  cat(paste0("<h3>Week ", w, "</h3>\n"))
+  cat("<p><em>Bonus picks are <strong>bolded</strong>.</em></p>\n")
 
   week_totals <- weekly_summary %>%
     filter(week == w) %>%
     arrange(desc(week_dollars)) %>%
     select(
-      Participant        = user,
-      Correct     = correct,
-      Total       = total,
-      `Base $`    = base_dollars,
-      `Bonus $`   = bonus_dollars,
-      `Missed $`  = missed_dollars,
-      `Week Total`= week_dollars
+      Participant  = user,
+      Correct      = correct,
+      Total        = total,
+      `Base $`     = base_dollars,
+      `Bonus $`    = bonus_dollars,
+      `Missed $`   = missed_dollars,
+      `Week Total` = week_dollars
     )
 
-  print(kable(week_totals))
+  if (nrow(week_totals) > 0) {
+    print(kable(week_totals))
+  } else {
+    cat("_Scores pending — check back once results are entered._\n")
+  }
   cat("\n")
 
+  # Picks table shows immediately on submission — Correct Pick stays blank
+  # until that game's result is entered in the Games tab
   week_detail <- results %>%
-    filter(week == w, !is.na(correct_pick)) %>%
-    mutate(pick_display = paste0(pick, ifelse(bonus, " (B)", ""))) %>%
+    filter(week == w) %>%
+    mutate(pick_display = ifelse(bonus, paste0("**", pick, "**"), pick)) %>%
     select(game_id, team_away, team_home, spread, correct_pick, user, pick_display) %>%
     tidyr::pivot_wider(
       id_cols     = c(game_id, team_away, team_home, spread, correct_pick),
@@ -46,9 +82,11 @@ for (w in sort(unique(weekly_summary$week))) {
 
   week_detail <- week_detail %>%
     mutate(Game = paste(team_away, "at", team_home)) %>%
-    select(Game, `Home Spread` = spread, `Correct Pick` = correct_pick, all_of(all_users))
+    select(Game, Spread = spread, `Correct Pick` = correct_pick, all_of(all_users))
 
-  print(kable(week_detail, na = ""))
+  print(kable(week_detail))
   cat("\n")
+
+  cat("</div>\n")
 }
 ```
