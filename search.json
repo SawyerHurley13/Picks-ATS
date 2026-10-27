@@ -39,7 +39,7 @@
     "href": "graphs.html#win-probability",
     "title": "Fun Stuff",
     "section": "Win Probability",
-    "text": "Win Probability\n(This is a work in progress. Do not read into it in any way.)\nThe chance each person finishes the season with the most money, from simulating the rest of the season 10,000 times. Hover for each person’s current total and expected final total."
+    "text": "Win Probability\n(This is a work in progress. Do not read into it much.)\nThe chance each person finishes the season with the most money, from simulating the rest of the season 10,000 times. Hover for each person’s current total and expected final total."
   },
   {
     "objectID": "chat.html",
@@ -60,14 +60,14 @@
     "href": "rules.html",
     "title": "Rules",
     "section": "",
-    "text": "You must bet every game every week, with the games being bet against the spread. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone.\nThe objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.\nWe will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game. I am able to see the time stamp of your picks, so don’t try and abuse this.\nEach week’s slate and spreads will be available sometime on Wednesday of that week (or the day before that week’s first game)"
+    "text": "You must bet every game every week, with the games being bet against the spread. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone.\nThe objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.\nWe will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game and it is within a reasonable time frame. I am able to see the time stamp of your picks, so don’t try and abuse this.\nEach week’s slate and spreads will be available sometime on Wednesday of that week (or the day before that week’s first game)"
   },
   {
     "objectID": "rules.html#how-it-works",
     "href": "rules.html#how-it-works",
     "title": "Rules",
     "section": "",
-    "text": "You must bet every game every week, with the games being bet against the spread. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone.\nThe objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.\nWe will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game. I am able to see the time stamp of your picks, so don’t try and abuse this.\nEach week’s slate and spreads will be available sometime on Wednesday of that week (or the day before that week’s first game)"
+    "text": "You must bet every game every week, with the games being bet against the spread. Each bet is worth $100. If you do not bet a game, you will be docked $25 for each game. You can make up to five additional bonus bets each week (this could be 0), each worth $200. This means up to five games could thus be worth $300. Generously, we assume everyone bought the hook, so games that result in a push (tie) are a win for everyone.\nThe objective of the game is to make the most money. While picking the most correct games is nice, that has no impact on the standings.\nWe will use an honor system, so if you are not able to make your pick(s) before kickoff, you may enter them late as long as you are unaware of the events of said game and it is within a reasonable time frame. I am able to see the time stamp of your picks, so don’t try and abuse this.\nEach week’s slate and spreads will be available sometime on Wednesday of that week (or the day before that week’s first game)"
   },
   {
     "objectID": "results.html",
