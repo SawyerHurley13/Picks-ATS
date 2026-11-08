@@ -3,4 +3,348 @@ title: "Fun Stuff"
 editor: visual
 ---
 
-More to come at a later date...
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+source("_data.R")
+library(dplyr)
+library(tidyr)
+library(plotly)
+library(knitr)
+
+# Chronological week order: regular season 1-18, then playoffs
+week_levels <- c(as.character(1:18), "WC", "Div", "Conf", "SB")
+
+scored_weeks <- unique(weekly_summary$week)
+scored_weeks <- scored_weeks[order(match(scored_weeks, week_levels))]
+has_data     <- length(scored_weeks) > 0
+
+# --- Colors -------------------------------------------------------------
+# Assigned in fixed order by position in the Users tab, so a person keeps
+# their color as the standings move. Participants 9+ reuse the colors with a dashed line.
+pal        <- c("skyblue", "purple", "lightgreen", "darkorange",
+                "hotpink", "darkgreen", "darkblue", "red")
+user_color <- setNames(pal[(seq_along(all_users) - 1) %% 8 + 1], all_users)
+user_dash  <- setNames(ifelse(seq_along(all_users) <= 8, "solid", "dash"), all_users)
+
+ink      <- "#52514e"   # secondary text
+grid_col <- "#e6e5e1"   # recessive grid
+surface  <- "#fcfcfb"   # used for the 2px gaps between stacked bars
+
+# --- Weekly data: one row per participant per scored week -------------------
+if (has_data) {
+  trend <- weekly_summary %>%
+    select(user, week, week_dollars, correct, picks = total) %>%
+    tidyr::complete(user = all_users, week = scored_weeks,
+                    fill = list(week_dollars = 0, correct = 0, picks = 0)) %>%
+    mutate(week = factor(week, levels = scored_weeks)) %>%
+    arrange(user, week) %>%
+    group_by(user) %>%
+    mutate(
+      total       = cumsum(week_dollars),
+      cum_correct = cumsum(correct),
+      cum_picks   = cumsum(picks),
+      win_pct     = ifelse(cum_picks > 0, 100 * cum_correct / cum_picks, NA_real_)
+    ) %>%
+    ungroup() %>%
+    mutate(week = as.character(week))
+
+  # Current standings order (leader first), used to sort rows in the charts below
+  leader_order <- trend %>%
+    group_by(user) %>%
+    summarise(t = sum(week_dollars), .groups = "drop") %>%
+    arrange(desc(t)) %>%
+    pull(user)
+}
+
+# Adds one line per participant to a plotly object
+add_user_lines <- function(p, data, xcol, ycol, fmt, suffix = "") {
+  for (u in all_users) {
+    d <- data[data$user == u, ]
+    p <- add_trace(
+      p, x = d[[xcol]], y = d[[ycol]],
+      type = "scatter", mode = "lines+markers", name = u, connectgaps = TRUE,
+      line   = list(color = user_color[[u]], width = 2, dash = user_dash[[u]]),
+      marker = list(color = user_color[[u]], size = 8,
+                    line = list(color = "#ffffff", width = 2)),
+      hovertemplate = paste0("%{y:", fmt, "}", suffix, "<extra>", u, "</extra>")
+    )
+  }
+  p
+}
+```
+
+```{r}
+#| echo: false
+#| results: asis
+if (!has_data) cat("_No scored games yet — the charts will appear once the first results are entered._")
+```
+
+## Money Over Time
+
+Running dollar total for every participant, week by week. Hover for exact amounts, click a name in the legend to hide or show a line, and double-click a name to isolate it.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if (has_data) {
+
+  x_levels <- c("Start", scored_weeks)
+
+  # Everyone starts the season at $0
+  line_data <- trend %>%
+    select(user, week, total) %>%
+    bind_rows(tibble(user = all_users, week = "Start", total = 0)) %>%
+    arrange(user, match(week, x_levels))
+
+  plot_ly() %>%
+    add_user_lines(line_data, "week", "total", "$,.0f") %>%
+    layout(
+      hovermode = "x unified",
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font   = list(color = ink),
+      xaxis  = list(title = "Week", type = "category",
+                    categoryorder = "array", categoryarray = x_levels,
+                    showgrid = FALSE, linecolor = grid_col, tickcolor = grid_col),
+      yaxis  = list(title = "", tickprefix = "$", tickformat = ",.0f",
+                    gridcolor = grid_col, zeroline = TRUE,
+                    zerolinecolor = "#9b9a94", zerolinewidth = 1),
+      legend = list(orientation = "h", y = -0.2),
+      margin = list(t = 10, r = 20)
+    ) %>%
+    config(displayModeBar = FALSE)
+
+}
+```
+
+
+## Weekly Results
+
+Each cell is one person's dollar result for one week. Green means they made money, red means they lost money, and gray means they broke even. Participants are sorted with the current leader on top. Hover for the exact amount.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if (has_data) {
+
+  hm <- trend %>%
+    select(user, week, week_dollars) %>%
+    pivot_wider(names_from = week, values_from = week_dollars)
+
+  z <- as.matrix(hm[match(leader_order, hm$user), scored_weeks])
+  m <- max(abs(z), na.rm = TRUE)
+  if (!is.finite(m) || m == 0) m <- 1
+
+  plot_ly(
+    x = scored_weeks, y = leader_order, z = z, type = "heatmap",
+    zmin = -m, zmax = m,
+    # red <-> green poles with a neutral gray midpoint at $0
+    colorscale = list(c(0, "red"), c(0.5, "#f0efec"), c(1, "darkgreen")),
+    xgap = 2, ygap = 2,
+    colorbar = list(title = "", tickprefix = "$", tickformat = ",.0f",
+                    thickness = 12, len = 0.9),
+    hovertemplate = "%{y} · Week %{x}<br>%{z:$,.0f}<extra></extra>",
+    height = 90 + 38 * length(all_users)
+  ) %>%
+    layout(
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font  = list(color = ink),
+      xaxis = list(title = "Week", type = "category",
+                   categoryorder = "array", categoryarray = scored_weeks,
+                   showgrid = FALSE),
+      yaxis = list(title = "", type = "category",
+                   categoryorder = "array", categoryarray = rev(leader_order),
+                   showgrid = FALSE),
+      margin = list(t = 10, r = 20)
+    ) %>%
+    config(displayModeBar = FALSE)
+
+}
+```
+
+## Where the Money Comes From
+
+Each person's season total split into base picks, bonus picks, and missed-pick penalties. The diamond marks the net total, so you can see who is making money on bonus picks and who is losing it.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if (has_data) {
+
+  src <- standings %>%
+    mutate(user = factor(user, levels = rev(leader_order))) %>%
+    arrange(user)
+
+  gap <- list(color = surface, width = 2)   # 2px gap between stacked segments
+
+  plot_ly(src, y = ~user, orientation = "h", height = 90 + 38 * length(all_users)) %>%
+    add_bars(x = ~base_dollars,   name = "Base picks",
+             marker = list(color = pal[1], line = gap),
+             hovertemplate = "%{x:$,.0f}<extra>Base picks</extra>") %>%
+    add_bars(x = ~bonus_dollars,  name = "Bonus picks",
+             marker = list(color = pal[2], line = gap),
+             hovertemplate = "%{x:$,.0f}<extra>Bonus picks</extra>") %>%
+    add_bars(x = ~missed_dollars, name = "Missed picks",
+             marker = list(color = pal[3], line = gap),
+             hovertemplate = "%{x:$,.0f}<extra>Missed picks</extra>") %>%
+    add_markers(x = ~total_dollars, name = "Net total",
+                marker = list(symbol = "diamond", size = 11, color = "#0b0b0b",
+                              line = list(color = "#ffffff", width = 2)),
+                hovertemplate = "%{x:$,.0f}<extra>Net total</extra>") %>%
+    layout(
+      barmode = "relative", bargap = 0.45,
+      hovermode = "y unified",
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font  = list(color = ink),
+      xaxis = list(title = "", tickprefix = "$", tickformat = ",.0f",
+                   gridcolor = grid_col, zeroline = TRUE,
+                   zerolinecolor = "#9b9a94", zerolinewidth = 1),
+      yaxis = list(title = "", type = "category",
+                   categoryorder = "array", categoryarray = rev(leader_order),
+                   showgrid = FALSE),
+      legend = list(orientation = "h", y = -0.15),
+      margin = list(t = 10, r = 20)
+    ) %>%
+    config(displayModeBar = FALSE)
+
+}
+```
+
+## Win Percentage Over Time
+
+Each person's cumulative win rate across the picks they actually made, with pushes counted as wins. This leaves out the dollar swings from bonus picks, so it shows who is picking well rather than who got lucky with a bonus. The dotted line is 50%, the break-even point against the spread. Early in the season these lines swing a lot because there are few picks behind them.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if (has_data) {
+
+  plot_ly() %>%
+    add_user_lines(trend, "week", "win_pct", ".1f", suffix = "%") %>%
+    layout(
+      hovermode = "x unified",
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font   = list(color = ink),
+      xaxis  = list(title = "Week", type = "category",
+                    categoryorder = "array", categoryarray = scored_weeks,
+                    showgrid = FALSE, linecolor = grid_col, tickcolor = grid_col),
+      yaxis  = list(title = "", ticksuffix = "%", tickformat = ".0f",
+                    gridcolor = grid_col, zeroline = FALSE),
+      shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1,
+                         yref = "y", y0 = 50, y1 = 50,
+                         line = list(color = "#9b9a94", width = 1, dash = "dot"))),
+      legend = list(orientation = "h", y = -0.2),
+      margin = list(t = 10, r = 20)
+    ) %>%
+    config(displayModeBar = FALSE)
+
+}
+```
+
+## Win Probability
+
+(This is a work in progress. Do not read into it much.)
+
+The chance each person finishes the season with the most money, from simulating the rest of the season 10,000 times. Hover for each person's current total and expected final total.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if (has_data) {
+
+  # --- Settings you can change ---------------------------------------------
+  N_SIMS      <- 10000        # number of simulated seasons
+  TOTAL_GAMES <- 285          # 272 regular-season games + 13 playoff games
+  PRIOR_PICKS <- 0          # how hard to pull everyone's record toward 50% (bigger = more skeptical). 200, for example?
+  set.seed(2026)              # keeps the percentages from jumping around on every render
+
+  # --- Step 1: how many games are left? --------------------------------------
+  games_scored <- sum(!is.na(games$correct_pick))
+  games_left   <- max(TOTAL_GAMES - games_scored, 0)
+
+  # --- Step 2: estimate three habits for each person -------------------------
+  #   p = chance a pick is right   (record so far, pulled strongly toward 50%)
+  #   q = chance they make a pick on a given game (the rest cost $25 each)
+  #   b = share of their picks they flag as bonus
+  bonus_counts <- results %>%
+    filter(!is.na(correct)) %>%
+    group_by(user) %>%
+    summarise(bonus_picks = sum(bonus, na.rm = TRUE), .groups = "drop")
+
+  model <- standings %>%
+    select(user, correct, total, total_dollars) %>%
+    left_join(bonus_counts, by = "user") %>%
+    mutate(
+      bonus_picks = coalesce(bonus_picks, 0),
+      p = (correct + PRIOR_PICKS * 0.5) / (total + PRIOR_PICKS),
+      q = if (games_scored > 0) pmin(total / games_scored, 1) else 1,
+      b = ifelse(total > 0, bonus_picks / total, 0)
+    )
+
+  # --- Step 3: simulate the rest of the season for one person ----------------
+  # Returns their final dollar total in each of the N_SIMS simulated seasons.
+  simulate_player <- function(p, q, b, current) {
+    made   <- rbinom(N_SIMS, games_left, q)     # games they pick
+    n_b    <- rbinom(N_SIMS, made, b)           # of those, bonus picks
+    wins_b <- rbinom(N_SIMS, n_b, p)            # bonus picks won
+    wins_n <- rbinom(N_SIMS, made - n_b, p)     # normal picks won
+    base   <- 100 * (2 * (wins_b + wins_n) - made)
+    bonus  <- 200 * (2 * wins_b - n_b)
+    missed <- -25 * (games_left - made)
+    current + base + bonus + missed
+  }
+
+  # One column per person, one row per simulated season
+  final <- sapply(seq_len(nrow(model)), function(i) {
+    simulate_player(model$p[i], model$q[i], model$b[i], model$total_dollars[i])
+  })
+
+  # --- Step 4: who finished first in each simulation? (ties broken at random) -
+  winner   <- max.col(final, ties.method = "random")
+  win_prob <- 100 * tabulate(winner, nbins = nrow(model)) / N_SIMS
+
+  fmt_money <- function(x) paste0(ifelse(x < 0, "-$", "$"), format(abs(round(x)), big.mark = ","))
+
+  prob <- model %>%
+    mutate(win_prob = win_prob, expected = colMeans(final)) %>%
+    arrange(desc(win_prob))
+
+  plot_ly(
+    prob,
+    y = ~factor(user, levels = rev(user)), x = ~win_prob,
+    type = "bar", orientation = "h",
+    marker = list(color = pal[1]),
+    text = ~paste0(round(win_prob, 1), "%"), textposition = "outside", cliponaxis = FALSE,
+    hoverinfo = "text",
+    hovertext = ~paste0(user, "<br>Chance to win: ", round(win_prob, 1), "%",
+                        "<br>Current total: ", fmt_money(total_dollars),
+                        "<br>Expected final total: ", fmt_money(expected)),
+    height = 90 + 38 * length(all_users)
+  ) %>%
+    layout(
+      bargap = 0.45,
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font  = list(color = ink),
+      xaxis = list(title = "", ticksuffix = "%", tickformat = ".0f",
+                   range = c(0, max(prob$win_prob) * 1.2 + 2),
+                   gridcolor = grid_col, zeroline = FALSE),
+      yaxis = list(title = "", type = "category", showgrid = FALSE),
+      margin = list(t = 10, r = 40)
+    ) %>%
+    config(displayModeBar = FALSE)
+
+}
+```
+

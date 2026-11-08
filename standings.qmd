@@ -24,3 +24,32 @@ standings %>%
   ) %>%
   kable()
 ```
+
+
+
+```{r}
+#| include: false
+
+source("_data.R")
+
+#Everyone's individual bonus picks winning percentage
+results %>%
+  filter(bonus %in% TRUE, !is.na(correct)) %>%
+  group_by(user) %>%
+  summarise(
+    bonus_correct = sum(correct),
+    bonus_total   = n(),
+    bonus_pct     = round(100 * bonus_correct / bonus_total, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(bonus_pct))
+
+#Combined bonus picks winning percentage
+results %>%
+  filter(bonus %in% TRUE, !is.na(correct)) %>%
+  summarise(
+    correct = sum(correct),
+    total = n(),
+    pct = round(100 * correct / total, 1)
+  )
+```
